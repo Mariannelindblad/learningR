@@ -38,3 +38,9 @@ colnames(airquality)
 # Spacing
 library(tidyverse)
 usethis::use_r("package-loading")
+
+?colnames
+?here
+
+r3::check_git_config()
+usethis::use_git()
