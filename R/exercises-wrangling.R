@@ -33,7 +33,7 @@ select(NHANES, ends_with("day") )
 select(NHANES, contains("age"))
 
 #Save the selected columns as a new dataframe
-nhanes_small <- select(NHANES, Age, Gender, BMI, Diabetes, PhysActive, BPSysAve, Education)
+nhanes_small <- select(NHANES, Age, Gender, BMI, Diabetes, PhysActive, BPSysAve, BPDiaAve, Education)
 
 #view the new dataframa
 nhanes_small
@@ -66,3 +66,28 @@ nhanes_small %>%
     select(phys_active) %>%
     rename(physically_active=phys_active)
 nhanes_small
+
+
+#Excercise 6.9
+
+nhanes_small %>%
+    select(bp_sys_ave, education)
+
+#renaming bp sys ave:
+nhanes_small %>%
+    rename(bp_sys = BPSysAve,
+           bp_dia = BPDiaAve)
+
+#rewrite this code using the pipe operator: select(nhanes_small, bmi, contains("age"))
+
+nhanes_small %>% select(BMI, contains("age"))
+
+
+#4. rewrite with pipe: Making a new function using piping: the old version: blood_pressure <- select(nhanes_small, starts_with("bp_"))
+# rename(blood_pressure, bp_systolic = bp_sys)
+
+blood_pressure <- nhanes_small %>% select(starts_with("BP")) %>% rename(bp_systolic = BPSysAve)
+
+
+?filter
+
