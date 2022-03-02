@@ -77,3 +77,4 @@ nhanes_small %>%
 nhanes_small %>%
     mutate(old = if_else(Age>=30, "Yes", "No") )
 
+

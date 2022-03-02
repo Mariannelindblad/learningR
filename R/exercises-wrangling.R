@@ -91,3 +91,48 @@ blood_pressure <- nhanes_small %>% select(starts_with("BP")) %>% rename(bp_systo
 
 ?filter
 
+#Excercise 6.13
+
+# Excercise 6.13 ----------------------------------------------------------
+
+
+# 1. BMI between 20 and 40 with diabetes
+nhanes_small %>%
+    # Format should follow: variable >= number or character
+    filter(BMI >= 20 & 40 <= BMI & Diabetes == "Yes")
+
+
+
+# Pipe the data into mutate function and:
+nhanes_modified <- nhanes_small %>%
+    mutate(filter(BMI >= 20 & 40 <= BMI & Diabetes == "Yes")
+
+ # 2. Calculate mean arterial pressure
+        mean_arterial_pressure = ((2 * BPDiaAve) + BpSysAve) / 3),
+
+
+# 3. Create young_child variable using a condition
+nhanes_small %>%
+    mutate(young_child = if_else(Age=6, "Yes", "No")
+    nhanes_modified
+
+
+    nhanes_modified <- nhanes_small %>% # dataset
+        mutate(
+            mean_arterial_pressure = ((2 * BPDiaAve) + BPSysAve) / 3,
+            young_child = if_else(Age < 6, "Yes", "No"))
+
+#Calculate the max value of BMI
+
+nhanes_small %>%
+    summarise(max_bmi=max(BMI, na.rm = TRUE)) ,
+            min_bmi=min(BMI, na.rm = TRUE))
+
+
+nhanes_small %>%
+    filter(!is.na(Diabetes)) %>%
+    group_by(Diabetes, PhysActive) %>%
+    summarise(mean_age=mean(Age, na.rm = TRUE) ,
+              mean_bmi=mean(BMI, na.rm = TRUE)) %>%
+    ungroup()
+
