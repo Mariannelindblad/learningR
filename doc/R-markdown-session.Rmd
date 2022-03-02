@@ -1,0 +1,26 @@
+---
+title: "Reproductible documents"
+author: "Marianne Lindblad"
+date: "2/3/2022"
+output: html_document
+---
+```{r}
+2 + 2
+```
+
+```{r setup, include=FALSE}
+source(here::here("R/package-loading.R"))
+load(here::here("data/nhanes_small.rda"))
+```
+
+```{r mean-age-bmi-table}
+nhanes_small %>%
+    filter(!is.na(Diabetes), !is.na(Education)) %>% 
+    group_by(Diabetes, Education) %>% 
+    summarise(mean_age = mean(Age, na.rm = TRUE),
+              mean_bmi = mean(BMI, na.rm = TRUE)) %>% 
+    ungroup() %>% 
+    knitr::kable(caption = "Table caption.
+                 Mean value of Age and BMI for each education and DM status")
+```
+

@@ -136,3 +136,9 @@ nhanes_small %>%
               mean_bmi=mean(BMI, na.rm = TRUE)) %>%
     ungroup()
 
+#Saving data in the DATA folder
+usethis::use_data(nhanes_small, overwrite = TRUE)
+
+
+load(here::here(data/nhanes_small)
+
