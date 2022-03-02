@@ -1,5 +1,6 @@
 TODO: Add more to the title of your project here
 Title: This is learning how to push and pull via GIT
+First we push to Github, now we are making an edit and the try to pull it back to Rstudio
 
 # LearningR:  
 
