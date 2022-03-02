@@ -51,16 +51,18 @@ nhanes_small <- rename(nhanes_small, sex = gender)
 
 nhanes_small
 
+
 #Piping functions
 # these two ways are the same:
 
 colnames(nhanes_small)
 
-nhanes_small %>%
+    nhanes_small %>%
     colnames()
+
 
 #renaming using piping:
 nhanes_small %>%
     select(phys_active) %>%
-    rename(physically_active = phys_active)
-
+    rename(physically_active=phys_active)
+nhanes_small
